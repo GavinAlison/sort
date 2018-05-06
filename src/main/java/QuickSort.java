@@ -18,15 +18,16 @@ public class QuickSort implements IArraySort {
         return arr;
     }
 
-    //一趟快排之后已经将key的位置找到。
+    //一趟快排之后已经将key的位置找到
     public int partition(int[] arr, int left, int right) {
         // 设定基准值
         int pivot = left;
         int index = pivot + 1;
         for (int i = index; i <= right; i++) {
-            if (arr[i] < arr[pivot])
-                swap(arr, pivot, i);
-            index++;
+            if (arr[i] < arr[pivot]) {
+                swap(arr, i, index);
+                index += 1;
+            }
         }
         swap(arr, pivot, index - 1);
         return index - 1;
